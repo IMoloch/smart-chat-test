@@ -33,7 +33,6 @@ export class HomePage {
       // Mensaje del bot
       let botMsg: Message = { sender: 'bot', content: '' }
       this.messages.push(botMsg)
-      console.log(this.messages);
   
       this.form.reset()
       this.form.disable()
@@ -52,6 +51,7 @@ export class HomePage {
           console.log(err);
         },
       })
+      this.scrollToBottom()
     }
   }
 
