@@ -21,13 +21,12 @@ app.get('/', async (req, res) => {
 app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt
-        const response = await cohere.generate ({
-            prompt: `${prompt}`,
-            maxTokens: 3000,
+        const response = await cohere.chat ({
+            message: `${prompt}`,
         })
         console.log(response);
         res.status(200).send({
-            bot: response.generations[0].text
+            bot: response.text
         })
     } catch (error) {
         console.log(error);
